@@ -2,50 +2,30 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Q2 Project</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- my bootstrap styling -->
+    <title>Q2 Project</title>
+
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- font from google -->
-    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&display=swap" rel="stylesheet">
-
-    <!-- pyscripting -->
     <link rel="stylesheet" href="https://pyscript.net/releases/2024.1.1/core.css">
     <script type="module" src="https://pyscript.net/releases/2024.1.1/core.js"></script>
 
     <style>
         body {
-            background-image: url("https://i.pinimg.com/1200x/fc/ed/d5/fcedd5e7e47bc666a9154b4744c241be.jpg");
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            background-attachment: fixed;
-            min-height: 100vh;
+            background-color: #4a3958;
         }
 
         .container {
-            max-width: 750px;
-            margin-top: 70px;
-            margin-bottom: 70px;
+            max-width: 600px;
+            margin-top: 80px;
+            margin-bottom: 80px;
         }
 
         .form-container {
-            background-color: rgba(13, 14, 13, 0.75);
-            padding: 35px;
+            background-color: white;
+            padding: 30px;
             border-radius: 15px;
-            backdrop-filter: blur(5px);
-        }
-
-        h1, h2 {
-            color: #f5bf8c;
-            font-family: 'Comic Neue', cursive;
-        }
-
-        h4 {
-            color: #f5bf8c !important;
         }
 
         .section {
@@ -59,37 +39,26 @@
             margin-bottom: 12px;
         }
 
-        .btn-primary {
-            background-color: #316083;
-            border-color: #316083;
+        .work-card h5 {
+            color: #4a3958;
         }
 
-        .btn-primary:hover {
-            background-color: #24465f;
-            border-color: #24465f;
+        .work-card p {
+            color: #333;
         }
 
         .work-card a {
-            color: #f5bf8c;
+            color: #4a3958;
             font-weight: bold;
             text-decoration: none;
         }
 
         .work-card a:hover {
-            color: #e8a96e;
             text-decoration: underline;
         }
 
-        p, li, small {
-            color: white !important;
-        }
-
         hr {
-            border-color: rgba(255, 255, 255, 0.5);
-        }
-
-        .text-center.mt-4 p, .text-center.mt-4 small {
-            color: white !important;
+            border-color: #aaa;
         }
     </style>
 </head>
@@ -99,120 +68,86 @@
     <div class="container">
         <div class="form-container">
 
-            <!-- basically the title -->
-            <div class="text-center">
+            <!-- homepage: ICT club membership checker -->
+            <h1 class="text-center mb-4">ICT Club Membership Checker</h1>
 
-                <h1 class="fw-bold">Meet the Creator</h1>
+            <form id="checkForm">
+                <div class="mb-3">
+                    <label for="fname" class="form-label fw-semibold">
+                        First Name
+                    </label>
+                    <input type="text" class="form-control"
+                           id="fname" placeholder="First Name" required>
+                </div>
 
-                <!-- my name -->
-                <h4>Philip Joaquin P. Ponce</h4>
+                <div class="mb-3">
+                    <label for="lname" class="form-label fw-semibold">
+                        Last Name
+                    </label>
+                    <input type="text" class="form-control"
+                           id="lname" placeholder="Last Name" required>
+                </div>
 
-                <p style="color: white;">Welcome to my personal webpage! Here, you'll be able to learn more about me including my interests, hobbies, and dreams!</p>
+                <button type="button" class="btn btn-primary w-100"
+                        py-click="check_club">
+                    Check Membership
+                </button>
+            </form>
 
-            </div>
-
-            <hr>
-
-            <!-- about me -->
-            <div class="section">
-
-                <h2 class="fw-bold">About Me</h2>
-
-                <p>
-                    Hello! My name is Philip Joaquin P. Ponce, also known for my nickname "Kyn". I am a student from O.B. Montessori Center Fairview Campus who enjoys
-                    learning new things, exploring different interests,
-                    and improving myself. I believe that every experience
-                    gives me an opportunity to grow as a person.
-                </p>
-
-            </div>
-
-            <!-- my interests & hobbiess -->
-            <div class="section">
-
-                <h2 class="fw-bold">Interests and Hobbies</h2>
-
-                <p>
-                    During my free time, I enjoy participating in
-                    activities that allow me to have fun and develop
-                    new skills.
-                </p>
-
-                <ul>
-                    <li>Playing Volleyball</li>
-                    <li>Playing Video Games with my Friends</li>
-                    <li>Watching Anime</li>
-                    <li>Learning more about Psychology of a Person</li>
-                    <li>Jogging & Running</li>
-                </ul>
-
-            </div>
-
-            <!-- my dreamss -->
-            <div class="section">
-
-                <h2 class="fw-bold">Dreams and Aspirations</h2>
-
-                <p>
-                    My biggest dream is to become a successful person in the future while having fun in life.
-                </p>
-
-                <p>
-                    I am also interested in exploring technology, business, and science. I hope to continue improving my skills and discovering new opportunities as I grow.
-                </p>
-
-            </div>
+            <p id="result" class="mt-3 text-center fw-semibold"></p>
 
             <hr>
 
-            <!-- the previous workss -->
+            <!-- my previous works -->
             <div class="section">
 
-                <h2 class="fw-bold">My Previous Works</h2>
+                <h2 class="fw-bold">My Previous Works and Q2 Project</h2>
 
-                <p style="color: white;">
-                    Here are some of the webpages
-                    I have created.
+                <p>
+                    Here are some of the webpages I have created.
                 </p>
 
-                <!-- seatwork 1 -->
+                <!-- skillz test -->
                 <div class="work-card">
-                    <h5 class="fw-bold">Webpage 1: Seatwork 1 - Club Member Checker</h5>
+                    <h5 class="fw-bold">Webpage 1: Skills Test - Element Checker</h5>
 
                     <p>
                         A webpage showcasing one of my previous
                         HTML and CSS projects.
                     </p>
 
-                    <a href="https://aeolusponce.github.io/Fairview_ICT10_Q2Seatwork1_Ponce_Philip/" target="_blank">
-                        View Project →
-                    </a>
-                </div>
-
-                <!-- skills test -->
-                <div class="work-card">
-                    <h5 class="fw-bold">Webpage 1: Skills Test - Element Checker</h5>
-
-                    <p>
-                        A Python-powered webpage that displays
-                        information about different elements.
-                    </p>
-
-                    <a href="https://aeolusponce.github.io/FV_ICT10_Q2SkillsTest_Ponce_Philip/" target="_blank">
+                    <a href="https://aeolusponce.github.io/FV_ICT10_Q2SkillsTest_Ponce_Philip/"
+                       target="_blank" rel="noopener noreferrer">
                         View Project →
                     </a>
                 </div>
 
                 <!-- drill 2 -->
                 <div class="work-card">
-                    <h5 class="fw-bold">Webpage 1: Drill 2: School Club Members</h5>
+                    <h5 class="fw-bold">Webpage 2: Drill 2 - School Club Members</h5>
 
                     <p>
-                        A description of another webpage or project
-                        that I have created.
+                        A Python-powered webpage that displays
+                        information about different elements.
                     </p>
 
-                    <a href="https://aeolusponce.github.io/Fairview_ICT10Topaz_Q2Drill2_Ponce_Philip/" target="_blank">
+                    <a href="https://aeolusponce.github.io/Fairview_ICT10Topaz_Q2Drill2_Ponce_Philip/"
+                       target="_blank" rel="noopener noreferrer">
+                        View Project →
+                    </a>
+                </div>
+
+                <!-- q2 project -->
+                <div class="work-card">
+                    <h5 class="fw-bold">Webpage 3: Q2 Project: Meet the Creator</h5>
+
+                    <p>
+                        A webpage that displays information about
+                        different school club members.
+                    </p>
+
+                    <a href="https://aeolusponce.github.io/FV_ICT10_Q2Project_Ponce_Philip/"
+                       target="_blank" rel="noopener noreferrer">
                         View Project →
                     </a>
                 </div>
@@ -221,21 +156,46 @@
 
             <hr>
 
-            <!-- and lastly, the footterrr -->
+            <!-- footer -->
             <div class="text-center mt-4">
-
-                <p class="text-muted mb-0">
+                <p class="mb-0">
                     Created by Philip Joaquin P. Ponce
                 </p>
 
-                <small class="text-secondary">
+                <small>
                     © 2026 Q2 ICT Project OBFV
                 </small>
-
             </div>
 
         </div>
     </div>
+
+    <!-- original python script -->
+    <script type="py">
+from pyscript import document
+
+club_members = [
+    "philip ponce",
+    "logan anaque",
+    "francis fernandez",
+    "edrian correa",
+    "juan dela cruz"
+]
+
+def check_club(e):
+    first_name = document.getElementById("fname").value.strip()
+    last_name = document.getElementById("lname").value.strip()
+
+    full_name = first_name + " " + last_name
+    result = document.getElementById("result")
+
+    message = {
+        True: "Welcome " + full_name + "! You are an ICT Club member.",
+        False: "Sorry " + full_name + ", your name is not on the list."
+    }[full_name.lower() in club_members]
+
+    result.innerText = message
+    </script>
 
 </body>
 </html>
